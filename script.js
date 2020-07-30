@@ -11,11 +11,11 @@ let canvas = d3.selection('#canvas')
 
 let drawMap = () => {
 
-	canvas.select('path')
+	canvas.selectAll('path')
 		  .data(countyData)
 		  .enter()
 		  .append('path')
-		  .attr('d', d3.geopath())
+		  .attr('d', d3.geoPath())
 		  .attr('class', 'county')
 		  .attr('fill', (item) => {
 		  	let fips = item['id']
