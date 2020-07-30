@@ -34,8 +34,18 @@ let drawMap = () => {
 		  	} else {
 		  		return 'gold'
 		  	}
-
 		  })
+		 .attr('data-fips', (countyDataItem) => {
+		 	return countyDataItem['id']
+		 })
+		 .attr('data-education', (educationDataItem) => {
+		 	let fips = educationDataItem['id']
+		 	let county = educationData.find((county) => {
+		 		return county['fips'] === fips
+		 	})
+		 	let percentage = county['bachelorsOrHigher']
+		 	return percentage
+		 })
 
 }
 
